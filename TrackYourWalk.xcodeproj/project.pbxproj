@@ -12,6 +12,7 @@
 		670E296E1F67F26E00DF5380 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 670E296C1F67F26E00DF5380 /* Main.storyboard */; };
 		670E29701F67F26E00DF5380 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 670E296F1F67F26E00DF5380 /* Assets.xcassets */; };
 		670E29731F67F26E00DF5380 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 670E29711F67F26E00DF5380 /* LaunchScreen.storyboard */; };
+		ED32C8BE1F68340400B51619 /* TaskToDo.rtf in Resources */ = {isa = PBXBuildFile; fileRef = ED32C8BD1F68340400B51619 /* TaskToDo.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		670E296F1F67F26E00DF5380 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		670E29721F67F26E00DF5380 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		670E29741F67F26E00DF5380 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED32C8BD1F68340400B51619 /* TaskToDo.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = TaskToDo.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,8 +40,8 @@
 		670E295C1F67F26E00DF5380 = {
 			isa = PBXGroup;
 			children = (
-				670E29671F67F26E00DF5380 /* TrackYourWalk */,
 				670E29661F67F26E00DF5380 /* Products */,
+				ED32C8BA1F68333800B51619 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +56,7 @@
 		670E29671F67F26E00DF5380 /* TrackYourWalk */ = {
 			isa = PBXGroup;
 			children = (
+				ED32C8BD1F68340400B51619 /* TaskToDo.rtf */,
 				670E29681F67F26E00DF5380 /* AppDelegate.swift */,
 				670E296A1F67F26E00DF5380 /* ViewController.swift */,
 				670E296C1F67F26E00DF5380 /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				670E29741F67F26E00DF5380 /* Info.plist */,
 			);
 			path = TrackYourWalk;
+			sourceTree = "<group>";
+		};
+		ED32C8BA1F68333800B51619 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				670E29671F67F26E00DF5380 /* TrackYourWalk */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,8 +107,13 @@
 				TargetAttributes = {
 					670E29641F67F26E00DF5380 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9LF24P7WQU;
+						DevelopmentTeam = R8BKCV8446;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -127,6 +143,7 @@
 				670E29731F67F26E00DF5380 /* LaunchScreen.storyboard in Resources */,
 				670E29701F67F26E00DF5380 /* Assets.xcassets in Resources */,
 				670E296E1F67F26E00DF5380 /* Main.storyboard in Resources */,
+				ED32C8BE1F68340400B51619 /* TaskToDo.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,11 +276,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9LF24P7WQU;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TrackYourWalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.neosofttech.TrackYourWalk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paymate.TrackYourWalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -272,11 +293,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9LF24P7WQU;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TrackYourWalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.neosofttech.TrackYourWalk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paymate.TrackYourWalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -300,6 +325,7 @@
 				670E29791F67F26E00DF5380 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

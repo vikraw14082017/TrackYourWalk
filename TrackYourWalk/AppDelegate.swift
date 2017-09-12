@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  TrackYourWalk
 //
-//  Created by HItesh on 12/09/17.
-//  Copyright © 2017 Neosoft. All rights reserved.
+//  Created by Vikas on 12/09/17.
+//  Copyright © 2017 Vikas. All rights reserved.
 //
 
 import UIKit
