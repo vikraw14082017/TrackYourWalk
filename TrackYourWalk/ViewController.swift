@@ -4,119 +4,103 @@
 //
 //  Created by Vikas on 12/09/17.
 //  Copyright © 2017 Vikas. All rights reserved.
-//http://pinkstone.co.uk/how-to-access-the-step-counter-and-pedometer-data-in-ios-9/
+//
 import UIKit
 import CoreMotion
+
 class ViewController: UIViewController {
 
+    @IBOutlet weak var labelStart: UILabel!
+    @IBOutlet weak var labelStop: UILabel!
+    @IBOutlet weak var buttonStart: UIButton!
+    @IBOutlet weak var buttonStop: UIButton!
     @IBOutlet weak var lblStepsCount: UILabel!
-    
-    
-    @IBOutlet weak var lblStepsPerSecond: UILabel!
-    
+    @IBOutlet weak var imageViewSteps: UIImageView!
     @IBOutlet weak var lblDistance: UILabel!
     
-    @IBOutlet weak var lblSpeed: UILabel!
+    var currentStepsCount  = 0
+    
+    var currentDistance  = 0.0
+    
+    var totalStepsCount  = 0
+    
+    var totalDistance  = 0.0
+
+    var isStart = false
     
     let pedometer = CMPedometer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        imageViewSteps.animationImages = [UIImage(named: "isteps2")!,UIImage(named: "isteps")!,UIImage(named: "isteps1")!]
+        imageViewSteps.clipsToBounds = true
+        imageViewSteps.animationDuration  = 0.8
+        imageViewSteps.animationRepeatCount  = 0
+        buttonStop.isEnabled = false
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     func startTracking() {
-        
         // start live tracking
+        lblDistance.text = "Getting disatnce walk..."
+        lblStepsCount.text = "Getting your steps count..."
         pedometer.startUpdates(from: Date()) { (pedometerData, error) in
-            
             print(error.debugDescription)
             if pedometerData != nil{
             self.updateLabels(pedometerData: pedometerData!)
             print(pedometerData!)
             }
         }
-//        [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
-//            
-//            // this block is called for each live update
-//            [self updateLabels:pedometerData];
-//            
-//            }];
     }
 
     func updateLabels(pedometerData :CMPedometerData)  {
     
         if CMPedometer.isStepCountingAvailable(){
-            lblStepsCount.text = "Steps Walked:\(pedometerData.numberOfSteps)"
+            currentStepsCount = totalStepsCount + Int(pedometerData.numberOfSteps)
+            lblStepsCount.text = "Steps Walked:\(currentStepsCount)"
         }else{
             lblStepsCount.text = "Steps counter not avialable."
         }
     
         if CMPedometer.isDistanceAvailable(){
-            lblDistance.text = "Distance travelled: \(String(describing: pedometerData.distance)) meters"
+            currentDistance =  totalDistance + (pedometerData.distance as! Double)
+            lblDistance.text = "Distance travelled: \(currentDistance) meters"
         }else{
-            lblStepsCount.text = "Distance estimate not available.."
+            lblDistance.text = "Distance estimate not available.."
         }
-        if CMPedometer.isCadenceAvailable() && pedometerData.currentCadence != nil{
-            lblStepsPerSecond.text = "\(String(describing: pedometerData.currentCadence)) steps per second"
-        }else{
-            lblStepsCount.text = "Steps counter not avialable."
-        }
-        if CMPedometer.isPaceAvailable() && pedometerData.currentPace != nil{
-            lblStepsCount.text = "Current speed:\(String(describing: pedometerData.currentPace))"
-        }else{
-            lblStepsCount.text = "Current speed not avialable."
-        }
-        
-        
-//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-//    formatter.maximumFractionDigits = 2;
-//    
-//    // step counting
-//        
-//    if ([CMPedometer isStepCountingAvailable]) {
-//    self.stepsLabel.text = [NSString stringWithFormat:@"Steps walked: %@", [formatter stringFromNumber:pedometerData.numberOfSteps]];
-//    } else {
-//    self.stepsLabel.text = @"Step Counter not available.";
-//    }
-    
-    // distance
-//    if ([CMPedometer isDistanceAvailable]) {
-//    self.distanceLabel.text = [NSString stringWithFormat:@"Distance travelled: \n%@ meters", [formatter stringFromNumber:pedometerData.distance]];
-//    } else {
-//    self.distanceLabel.text = @"Distance estimate not available.";
-//    }
-    
-    // pace
-//    if ([CMPedometer isPaceAvailable] && pedometerData.currentPace) {
-//    self.paceLabel.text = [NSString stringWithFormat:@"Current Pace: \n%@ seconds per meter", [formatter stringFromNumber:pedometerData.currentPace]];
-//    } else {
-//    self.paceLabel.text = @"Pace not available.";
-//    }
-    
-    // cadence
-//    if ([CMPedometer isCadenceAvailable] && pedometerData.currentCadence) {
-//    self.cadenceLabel.text = [NSString stringWithFormat:@"Cadence: \n%@ steps per second", [formatter stringFromNumber: pedometerData.currentCadence]];
-//    } else {
-//    self.cadenceLabel.text = @"Cadence not available.";
-//    }
-    
- 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        startTracking()
+    
+    @IBAction func startOrPauseTracking(_ sender: UIButton) {
+        if  isStart {
+            buttonStart.setBackgroundImage(UIImage(named: "play"), for: .normal)
+            imageViewSteps.stopAnimating()
+            labelStart.text = "Resume"
+            isStart = false
+            totalDistance = currentDistance
+            totalStepsCount = currentStepsCount
+        }else{
+            startTracking()
+            buttonStop.isEnabled = true
+            imageViewSteps.startAnimating()
+            buttonStart.setBackgroundImage(UIImage(named: "pause"), for: .normal)
+            labelStart.text = "Pause"
+            isStart = true
+           
+        }
     }
     
-    func stopTracking()  {
+    @IBAction func stopTracking(_ sender: UIButton) {
+      
+        buttonStart.setBackgroundImage(UIImage(named: "play"), for: .normal)
+        imageViewSteps.stopAnimating()
+        labelStart.text = "Start"
+        isStart = false
+        buttonStop.isEnabled = false
         pedometer.stopUpdates()
+        totalDistance = 0.0
+        totalStepsCount = 0
     }
-
 }
 
 

@@ -27,7 +27,7 @@
 	<key>NSHomeKitUsageDescription</key>
 	<string></string>
 	<key>NSMotionUsageDescription</key>
-	<string>Yes</string>
+	<string>To count your steps</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
