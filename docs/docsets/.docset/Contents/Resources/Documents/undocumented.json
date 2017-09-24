@@ -1,0 +1,54 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/vikasrawat/Desktop/TrackYourWalk/TrackYourWalk/AppDelegate.swift",
+      "line": 14,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vikasrawat/Desktop/TrackYourWalk/TrackYourWalk/ViewController.swift",
+      "line": 71,
+      "symbol": "ViewController.viewDidAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vikasrawat/Desktop/TrackYourWalk/TrackYourWalk/ViewController.swift",
+      "line": 80,
+      "symbol": "ViewController.requestMotionAccessData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vikasrawat/Desktop/TrackYourWalk/TrackYourWalk/ViewController.swift",
+      "line": 194,
+      "symbol": "ViewController.saveDataToHealthKit()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vikasrawat/Desktop/TrackYourWalk/TrackYourWalk/ViewController.swift",
+      "line": 208,
+      "symbol": "ViewController.alertViewWithMessage(message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vikasrawat/Desktop/TrackYourWalk/TrackYourWalk/ViewController.swift",
+      "line": 218,
+      "symbol": "ViewController.handleError(error:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vikasrawat/Desktop/TrackYourWalk/TrackYourWalk/ViewController.swift",
+      "line": 230,
+      "symbol": "ViewController.healthKitAuthorisation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/vikasrawat/Desktop/TrackYourWalk"
+}

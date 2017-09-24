@@ -1,0 +1,7 @@
+version: "Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)"
+options: "32302fabda9f108a15074fe22f70ff03"
+build_time: [559585001, 973867000]
+inputs:
+  "/Users/vikasrawat/Desktop/TrackYourWalk/TrackYourWalk/ViewController.swift": [9223372036854775807, 0]
+  "/Users/vikasrawat/Desktop/TrackYourWalk/TrackYourWalk/AppDelegate.swift": [9223372036854775807, 0]
+  "/Users/vikasrawat/Desktop/TrackYourWalk/TrackYourWalk/HealthKitSetup.swift": [9223372036854775807, 0]
